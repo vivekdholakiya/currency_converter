@@ -34,8 +34,14 @@ class _CurrencyConverterMaterialPageState
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // const TextField(
+            //   decoration: InputDecoration(
+            //     prefixIcon: Icon(Icons.insert_chart),
+            //     prefixIconColor: Colors.black,
+            //   ),
+            // ),
             Text(
-              result.toString(),
+              'INR ${result.toStringAsFixed(2)}',
               style: const TextStyle(
                 fontSize: 55,
                 fontWeight: FontWeight.bold,
@@ -74,7 +80,8 @@ class _CurrencyConverterMaterialPageState
                 ),
               ),
             ),
-            TextButton(
+            const SizedBox(height: 10),
+            ElevatedButton(
               onPressed: () {
                 setState(() {
                   result = double.parse(textEditingController.text) * 81;
