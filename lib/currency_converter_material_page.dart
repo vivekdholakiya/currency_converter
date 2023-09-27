@@ -14,6 +14,10 @@ class _CurrencyConverterMaterialPageState
   double result = 0;
   final textEditingController = TextEditingController();
 
+  void convert() {
+    result = double.parse(textEditingController.text) * 81;
+    setState(() {});
+  }
   // @override
   // void initState() {
   //   super.initState();
@@ -41,7 +45,7 @@ class _CurrencyConverterMaterialPageState
             //   ),
             // ),
             Text(
-              'INR ${result.toStringAsFixed(2)}',
+              'INR ${result != 0 ? result.toStringAsFixed(3) : result.toStringAsFixed(0)}',
               style: const TextStyle(
                 fontSize: 55,
                 fontWeight: FontWeight.bold,
@@ -82,11 +86,7 @@ class _CurrencyConverterMaterialPageState
             ),
             const SizedBox(height: 10),
             ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  result = double.parse(textEditingController.text) * 81;
-                });
-              },
+              onPressed: convert,
               style: TextButton.styleFrom(
                 backgroundColor: Colors.black,
                 foregroundColor: Colors.white,
